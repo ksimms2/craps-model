@@ -1,5 +1,13 @@
 package edu.cnm.deepdive.craps.model;
 
+/**
+ * <code>State</code> implements a basic state machine for the main play of a
+ * game of Craps, starting with the come-out roll, and ending with a win or loss
+ * of the main bet
+ *
+ * @author Kevin Simms &amp; Deep Dive Coding Java + Android cohort 6
+ * @version 1.0
+ */
 public enum State {
   COME_OUT  {
     @Override
@@ -32,7 +40,16 @@ public enum State {
   WIN,
   LOSS;
 
-
+  /**
+   * Applies the specified roll sum to this state, returning the state resulting
+   * from the transition represented by the roll. For the terminal states ({@link
+   * #WIN} and {@link #LOSS}), no change of state will result from any roll sum
+   * value
+   * @param roll        sum of dice in current roll.
+   * @param pointValue  established point value (ignored unless this state is
+   *                     {@link #POINT}).
+   * @return            state resulting from transition.
+   */
 
   public State change(int roll, int pointValue){
   return this;
